@@ -1,0 +1,311 @@
+/* ----------------------------------------
+   CSS Variables — edit these to retheme
+   the whole site at once
+---------------------------------------- */
+:root {
+  --bg: #f5f0e8;
+  --bg-alt: #eee8d8;
+  --ink: #1a1612;
+  --ink-light: #6b6057;
+  --accent: #c84b2f;
+  --accent-hover: #a33a21;
+  --card-bg: #ffffff;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --max-width: 1100px;
+  --radius: 4px;
+}
+
+/* ----------------------------------------
+   Reset & Base
+---------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ----------------------------------------
+   Navigation
+---------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--ink-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* ----------------------------------------
+   Hero
+---------------------------------------- */
+.hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-text {
+  max-width: 620px;
+  position: relative;
+  z-index: 2;
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.05;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+/* Decorative circles */
+.hero-decoration {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(200, 75, 47, 0.15);
+}
+
+.circle-1 {
+  width: 480px;
+  height: 480px;
+  top: 0; left: 0;
+  animation: rotate 30s linear infinite;
+}
+
+.circle-2 {
+  width: 320px;
+  height: 320px;
+  top: 80px; left: 80px;
+  border-color: rgba(200, 75, 47, 0.1);
+  animation: rotate 20s linear infinite reverse;
+}
+
+.circle-3 {
+  width: 160px;
+  height: 160px;
+  top: 160px; left: 160px;
+  background: rgba(200, 75, 47, 0.04);
+  border-color: rgba(200, 75, 47, 0.2);
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ----------------------------------------
+   Button
+---------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* ----------------------------------------
+   Sections
+---------------------------------------- */
+.section {
+  padding: 7rem 2rem;
+}
+
+.section-alt {
+  background-color: var(--bg-alt);
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section p {
+  color: var(--ink-light);
+  max-width: 600px;
+  margin-bottom: 1.2rem;
+}
+
+/* ----------------------------------------
+   Cards
+---------------------------------------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.card-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(200, 75, 47, 0.15);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* ----------------------------------------
+   Contact section button spacing
+---------------------------------------- */
+#contact p {
+  margin-bottom: 1.2rem;
+}
+
+#contact .btn {
+  margin-top: 0.8rem;
+}
+
+/* ----------------------------------------
+   Footer
+---------------------------------------- */
+footer {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-light);
+}
+
+/* ----------------------------------------
+   Responsive
+---------------------------------------- */
+@media (max-width: 768px) {
+  .hero-decoration { display: none; }
+  nav ul { gap: 1.5rem; }
+  .section { padding: 5rem 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  nav ul { display: none; }
+  .hero { min-height: 70vh; }
+}
